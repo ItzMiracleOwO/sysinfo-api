@@ -11,8 +11,8 @@ api.all('*', (req, res) => {
   reqHandler.handle(req, res)
 })
 
-api.listen(3000, function () {
-  console.log('Server is listening on port 3000')
+api.listen(require("./config.js").listenPort, function () {
+  console.log('Server is listening on port ' + require("./config.js").listenPort)
   require('systeminformation').currentLoad()
   require('systeminformation').fsStats()
   require('systeminformation').disksIO()
